@@ -1,0 +1,61 @@
+:css
+  .page {
+    font-size: 120%;
+    font-weight: bold;
+    position: relative;
+    padding: 10px;
+    padding-left: 30px;
+    border-top: 1px solid #eaeaea;
+  }
+  .page .icon {
+    position: absolute;
+    margin-top: -7px;
+    left: 0px;
+  }
+  ul.pages,
+  ul.pages li {
+    list-style: none;
+    margin: 0;
+    padding: 0
+  }
+  ul.pages {
+    border-bottom: 1px solid #eaeaea;
+  }
+  ul.pages li {
+    font-size: 105%;
+    font-weight: normal;
+    padding: 10px;
+    padding-left: 52px;
+  }
+  ul.page .icon,
+  ul.pages .icon {
+    position: absolute;
+    margin-top: -7px;
+    left: 22px;
+  }
+
+%h1#reorder_pages= t('reorder_pages')
+
+%p= t('drag_and_drop_to_reorder')
+
+#page.page
+  = page_icon(@page)
+  = @page.title
+
+%ul#children.pages
+  - for child in @children
+    %li{:id => "item_#{child.id}", :class => "page"}
+      = page_icon(child)
+      = child.breadcrumb
+
+:javascript
+  Sortable.create("children", { onUpdate:function(){ $('sort_order').value = Sortable.sequence('children').join(',') } });
+
+- @javascripts << 'admin/dragdrop'
+- form_tag do
+  %p.buttons
+    = submit_tag t("buttons.save_changes"), :class => 'button'
+    = t('or')
+    = link_to t('cancel'), admin_pages_url
+  
+  %div= hidden_field_tag "sort_order"
