@@ -1,3 +1,4 @@
-%td.reorder
+%td.reorder.actions
   - unless simple || page.respond_to?(:stop_recurring) || page.respond_to?(:tree_children) || page.children.empty?
-    = link_to image('reorder', :alt => 'Reorder'), page_reorder_children_url(:id => page)
+    = link_to image('reorder', :alt => 'Reorder') + '&nbsp' + t('reorder'), page_reorder_children_url(:id => page), :class => "action"
+    
