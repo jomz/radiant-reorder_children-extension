@@ -9,7 +9,8 @@ class ReorderChildrenExtension < Radiant::Extension
   version RadiantReorderChildrenExtension::VERSION
   description "Adds the ability to reorder the children of a page."
   url "http://github.com/jomz/radiant-reorder_children-extension"
-  
+
+  migrate_from "Reorder", 1
   # extension_config do |config|
   #   config.gem 'some-awesome-gem'
   #   config.after_initialize do
