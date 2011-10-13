@@ -1,6 +1,6 @@
 module ReorderChildren
   module PageExtensions
-    def included(page_base)
+    def self.included(page_base)
       page_base.send(:before_create, :update_position)
     end
   
