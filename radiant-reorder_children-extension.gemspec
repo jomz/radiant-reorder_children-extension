@@ -22,8 +22,4 @@ Gem::Specification.new do |s|
   # s.executables   = Dir['bin/*'] - ignores
   s.require_paths = ["lib"]
   
-  s.post_install_message = %{
-  Add this to your radiant project with:
-    config.gem 'radiant-reorder_children-extension', :version => '~>#{RadiantReorderChildrenExtension::VERSION}'
-  }
 end
