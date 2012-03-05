@@ -6,7 +6,7 @@ module ReorderChildren
   
     def update_position
       last = Page.find(:first, :conditions => { :parent_id => parent_id }, :order => 'position DESC')
-      write_attribute('position', last.position + 1) if last
+      write_attribute('position', last.position.to_i + 1) if last
       true
     end
   end
