@@ -26,7 +26,12 @@ or, add the gem to your environment.rb:
 Then update and migrate:    
 
     rake db:migrate:extensions
-    rake radiant:extensions:reorder:update
+    rake radiant:extensions:reorder_children:update
+
+Remember that when working with Bundler, you will want to do something like (sample below assumes that you are using Radiant in production - change "production" to "development" or something else if you are using a different environment):    
+
+    bundle exec rake db:migrate:extensions RAILS_ENV=production
+    bundle exec rake radiant:extensions:reorder_children:update RAILS_ENV=production
 
 ###Added Tags
 
