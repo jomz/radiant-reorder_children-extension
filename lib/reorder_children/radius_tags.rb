@@ -12,7 +12,7 @@ module ReorderChildren
     }
     tag "next" do |tag|
       by = tag.attr['by'] || "position"
-      next_page = Page.find_by_parent_id(tag.locals.page.parent_id, :conditions => ["virtual = false and status_id = 100 and #{by} > ?", tag.locals.page.send(by)], :order => "#{by} ASC")
+      next_page = Page.find_by_parent_id(tag.locals.page.parent_id, :conditions => ["virtual = ? and status_id = 100 and #{by} > ?", false, tag.locals.page.send(by)], :order => "#{by} ASC")
       if next_page
         tag.locals.page = next_page
         tag.expand
@@ -28,7 +28,7 @@ module ReorderChildren
     }
     tag "previous" do |tag|
       by = tag.attr['by'] || "position"
-      previous_page = Page.find_by_parent_id(tag.locals.page.parent_id, :conditions => ["virtual = false and status_id = 100 and #{by} < ?", tag.locals.page.send(by)], :order => "#{by} DESC")
+      previous_page = Page.find_by_parent_id(tag.locals.page.parent_id, :conditions => ["virtual = ? and status_id = 100 and #{by} < ?", false, tag.locals.page.send(by)], :order => "#{by} DESC")
       if previous_page
         tag.locals.page = previous_page
         tag.expand
