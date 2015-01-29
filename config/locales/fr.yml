@@ -1,5 +1,6 @@
+# encoding: utf-8
 ---
 fr:
-  drag_and_drop_to_reorder: Glissez et déposez pages pour réordonner. Cliquez sur <strong>Enregistrer les modifications</strong> lorsque vous avez terminé.
-  reorder: Réordonner
-  reorder_pages: Réordonner Pages
+  drag_and_drop_to_reorder: "Glissez et d&eacute;posez pages pour r&eacute;ordonner. Cliquez sur <strong>Enregistrer les modifications</strong> lorsque vous avez termin&eacute;."
+  reorder: "R&eacute;ordonner"
+  reorder_pages: "R&eacute;ordonner Pages"
